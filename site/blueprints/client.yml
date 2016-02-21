@@ -1,0 +1,11 @@
+title: Client
+pages: false
+files: true
+preview: false
+fields:
+  title:
+    label: Client
+    type:  text
+  project:
+    label: Project
+    type:  text

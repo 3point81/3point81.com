@@ -1,0 +1,8 @@
+title: Work
+pages: client
+files: false
+preview: false
+fields:
+  title:
+    label: Title
+    type:  text

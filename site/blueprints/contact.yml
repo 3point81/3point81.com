@@ -1,0 +1,21 @@
+title: Contact page
+pages: false
+files: true
+preview: false
+fields:
+  title:
+    label: Title
+    type:  text
+  text:
+    label: Text
+    type:  textarea
+  footerHeadline:
+    label: Footer
+    type: headline
+  footerContact:
+    label: Contact details
+    type:  textarea
+  footerDisclaimer:
+    label: Discalimer
+    type: textarea
+

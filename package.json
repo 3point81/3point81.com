@@ -1,0 +1,31 @@
+{
+  "name": "3point81.com",
+  "version": "1.0.0",
+  "description": "3point81.com - Based on Kirby CMS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:3point81/3point81.com.git"
+  },
+  "license": "ISC",
+  "homepage": "https://3point81.com",
+  "dependencies": {
+    "normalize-scss": "^4.0.3"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.11.1",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-connect-php": "0.0.7",
+    "gulp-csso": "^1.0.1",
+    "gulp-load-plugins": "^1.2.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sass": "^2.2.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-util": "^3.0.7",
+    "sanitize.css": "^3.2.0"
+  }
+}

@@ -1,0 +1,23 @@
+title: People page
+pages: false
+files: true
+preview: false
+fields:
+  title:
+    label: Title
+    type:  text
+  sections:
+    label: Sections
+    type:  structure
+    entry: >
+      <strong>{{title}}</strong><br>
+      {{text}}
+    fields:
+      title:
+        label: Title
+        type: text
+      text:
+        label: Text
+        type: textarea
+
+
