@@ -16,9 +16,7 @@
 
 <div id="team">
     <div class="container">
-        <div class="box">
-            <h2><?php echo $section->team(); ?></h2>
-        </div>
+        <h2><?php echo $section->team(); ?></h2>
         <div class="people">
             <?php foreach ($section->children()->visible() as $person): ?>
                 <div class="person">

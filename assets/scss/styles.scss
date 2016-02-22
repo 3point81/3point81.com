@@ -2,6 +2,7 @@ $root-font-family: "Aller W01", sans-serif;
 @import "../../node_modules/sanitize.css/sanitize.scss";
 
 $transparentBg: rgba(245,245,245, 0.5);
+$boxPadding: 20px;
 
 .hidden {
   display: none;
@@ -50,7 +51,7 @@ header {
 }
 .box {
   background: $transparentBg;
-  padding: 20px;
+  padding: $boxPadding;
   margin: 0 auto;
   margin-bottom: 50px;
   position: relative;
@@ -99,30 +100,16 @@ section#contact {
   overflow: auto;
 }
 
-//
-// TEAM SUBSECTION
-//
-#team {
-  background: white;
-  .container {
-    margin-bottom: 0;
-  }
-  .people {
-    display: table;
-    table-layout: fixed;
-    margin: 0 auto;
-  }
-  .person {
-    display: table-cell;
-  }
-}
 
+//
 // ABOUT/HOME SECTION
-
+//
 #home {
-  font-size: 1.2em;
+  //font-size: 1.2em;
   .box {
-    margin-top: 60vh;
+    width: 60%;
+    margin-left: 0;
+    margin-top: 50vh;
   }
 }
 
@@ -131,8 +118,42 @@ section#contact {
 //
 #contact {
   color: white;
+  .map iframe {
+    max-width:100%;
+  }
 }
 
+//
+// PEOPLE SECTION
+//
+#people {
+  .box {
+    width: 60%;
+    margin-left: 0;
+  }
+}
+//
+// TEAM SUBSECTION
+//
+#team {
+  background: white;
+  .container {
+    margin-bottom: 0;
+  }
+  h2 {
+    padding: $boxPadding;
+  }
+  .people {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .person {
+    width:14%;
+    img {
+      width:100%;
+    }
+  }
+}
 //
 // WORK SECTION
 //
@@ -162,6 +183,7 @@ section#contact {
 //  CLIENTS SECTION
 //
 #clients {
+  padding-top: 15vh;
   .logos{
     display: flex;
     flex-wrap: wrap;
@@ -255,11 +277,17 @@ section#contact {
     margin-bottom: 50px;
     width: 80%;
   }
+  #team .person {
+    width: 25%;
+  }
   #clients .logo {
     width: 33.33%;
   }
   .container {
     width: 90%;
+  }
+  .box {
+    width: 100% !important;
   }
   footer {
     position: relative;

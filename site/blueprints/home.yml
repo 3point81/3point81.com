@@ -1,0 +1,19 @@
+title: Home
+files: true
+preview: false
+pages: false
+deletable: false
+fields:
+  title:
+    label: Section name
+    type: text
+  tagline:
+    label: Tagline
+    type: text
+  text:
+    label: Content
+    type: textarea
+  background:
+    label: Background Color
+    type:  color
+    default: fff

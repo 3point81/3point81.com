@@ -1,11 +1,12 @@
-title: Client
+title: Person
 pages: false
 files: true
 preview: false
+deletable: false
 fields:
   title:
-    label: Client
+    label: Name
     type:  text
-  project:
-    label: Project
+  role:
+    label: Role
     type:  text

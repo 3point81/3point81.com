@@ -1,0 +1,9 @@
+title: Logos
+deletable: false
+files: true
+preview: false
+pages: false
+fields:
+  title:
+    label: Title
+    type:  text

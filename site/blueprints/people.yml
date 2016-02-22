@@ -1,7 +1,8 @@
 title: People page
-pages: false
+pages: person
 files: true
 preview: false
+deletable: false
 fields:
   title:
     label: Title
@@ -19,5 +20,13 @@ fields:
       text:
         label: Text
         type: textarea
+  team:
+    label: Team
+    type: text
+  background:
+    label: Background Color
+    type:  color
+    default: fff
+
 
 

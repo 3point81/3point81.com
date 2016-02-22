@@ -1,11 +1,13 @@
-title: Work
-pages: casestudy
-deletable: false
+title: Case study
+pages: false
 files: true
-preview: false
+preview: true
 fields:
   title:
-    label: Title
+    label: Client name
+    type:  text
+  text:
+    label: Project
     type:  text
   background:
     label: Background Color

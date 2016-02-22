@@ -1,0 +1,8 @@
+title: Clients
+deletable: false
+files: true
+preview: false
+fields:
+  title:
+    label: Title
+    type:  text

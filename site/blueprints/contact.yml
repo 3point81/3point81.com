@@ -2,20 +2,27 @@ title: Contact page
 pages: false
 files: true
 preview: false
+deletable: false
 fields:
   title:
     label: Title
     type:  text
-  text:
-    label: Text
+  address:
+    label: Address
     type:  textarea
-  footerHeadline:
+  map:
+    label: Map
+    placeholder: HTML embed code for iframe
+    type:  textarea
+    buttons: false
+    icon: map-marker
+  footer:
     label: Footer
-    type: headline
-  footerContact:
-    label: Contact details
-    type:  textarea
-  footerDisclaimer:
-    label: Discalimer
     type: textarea
-
+  disclaimer:
+    label: Disclaimer
+    type:  textarea
+  background:
+    label: Background Color
+    type:  color
+    default: fff
