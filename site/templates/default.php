@@ -14,7 +14,6 @@
 </head>
 <body>
 
-
 <?php echo snippet('header'); ?>
 <?php foreach ($site->pages()->visible() as $section): ?>
     <section id="<?php echo $section->uid(); ?>">

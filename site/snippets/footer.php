@@ -2,10 +2,10 @@
 <footer>
 <?php if ($contactPage): ?>
     <div>
-        <?php echo $contactPage->footerContact()->kirbytext(); ?>
+        <?php echo $contactPage->footer()->kirbytext(); ?>
     </div>
     <div class="disclaimer">
-        <?php echo $contactPage->footerDisclaimer()->kirbytext(); ?>
+        <?php echo $contactPage->disclaimer()->kirbytext(); ?>
     </div>
 <?php else: ?>
     <p>The footer content depends on the Contact page</p>

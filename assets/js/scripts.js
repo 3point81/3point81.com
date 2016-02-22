@@ -22,22 +22,26 @@ function throttle(a, b, c, d) {
 $(function () {
     var $sections = $('body > section[id]');
     var $links = $('nav li a[href^="#"]');
+    var $videos = $('.bg--video video');
+
     var $window = $(window);
 
     var $offsets;
     var windowHeight;
 
+
     var updateActiveSection = function () {
         var scrollTop = $window.scrollTop();
+        var threshold = $window.height() * 0.2;
         var active = 0;
         $offsets.each(function (i, offset) {
-            if (scrollTop >= offset) {
+            if ((scrollTop + threshold) >= offset) {
                 active = i;
             }
         });
         [$sections, $links].forEach(function (els) {
-            els.not(':eq(' + active + ')').removeClass('active');
-            els.eq(active).addClass('active');
+            els.not(':eq(' + active + ')').removeClass('active').find('video').each(function(){return this.pause();})
+            els.eq(active).addClass('active').find('video').each(function(){return this.play(); })
         })
     };
 
@@ -71,6 +75,6 @@ $(function () {
 
     $links
         .on('click', preventDefault)
-        .on('mousedown touchstart', scrollToAnchor);
+        .on('click', scrollToAnchor);
 
 });

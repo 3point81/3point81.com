@@ -6,11 +6,10 @@
  */
 function section(PageAbstract $section){
     $uid = $section->uid();
-    $content = snippet('home' , [], true);
+    $content = snippet($uid , compact('section'), true);
     if($content !== false){
-        $video = backgroundVideo($section);
-        $gif = backgroundGif($section);
-        return implode("\n", array_filter([$content, $video, $gif]));
+        $bg = supportsBgVideo() ? backgroundVideo($section) : backgroundGif($section);
+        return implode("\n", array_filter([$content, $bg]));
     }
     return "<!-- Warning: site/snippets/$uid.php doesn't exist -->" .
         '<h2>' . $section->title() . '</h2>' .
@@ -54,8 +53,15 @@ function backgroundVideo(PageAbstract $section){
  */
 function backgroundGif(PageAbstract $section){
     $gif = firstFileWithExt($section, 'gif');
+    $color = preg_replace('/[^0-9a-f]/', '', $section->background());
     if($gif){
-        return '<div class="bg bg--gif" style="background-image: url(' . $gif->url() . ');"></div>';
+        return '<div class="bg bg--gif" 
+            style="background-color: #'. $color . '; background-image: url(' . $gif->url() . ');"></div>';
     }
    return "<!-- Warning: no .gif found in " . $section->diruri() . " -->";
+}
+
+
+function supportsBgVideo(){
+    return !(preg_match('/iPhone|iPod|iPad|BlackBerry|Android/', visitor::ua()) || r::has('mobile'));
 }
