@@ -168,6 +168,9 @@ section#contact {
   .project {
     width: 24%;
     text-align: center;
+    a {
+      color: inherit;
+    }
     img {
       max-width: 100%;
     }
@@ -176,6 +179,19 @@ section#contact {
       padding-top: 10px;
       border-top: 3px solid #cc0000;
     }
+  }
+}
+
+//
+// CASE STUDY SECTION/PAGE
+//
+#case-study {
+  .download-case-study {
+    color: black;
+    padding: 5px 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    float: right;
   }
 }
 

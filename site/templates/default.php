@@ -12,14 +12,18 @@
         <link rel="stylesheet" href="<?php echo url('assets/css/styles.css'); ?>">
     <?php endif; ?>
 </head>
-<body>
+<body class="<?php e($page->isHomePage(), 'home'); ?>">
 
 <?php echo snippet('header'); ?>
-<?php foreach ($site->pages()->visible() as $section): ?>
-    <section id="<?php echo $section->uid(); ?>">
+
+<?php $sections = $page->isHomePage() ? $site->pages()->visible() : [$page]; ?>
+
+<?php foreach ($sections as $section): ?>
+    <section id="<?php echo $section->intendedTemplate(); ?>">
         <?php echo section($section); ?>
     </section>
 <?php endforeach; ?>
+
 <?php echo snippet('footer'); ?>
 
 <script src="https://code.jquery.com/jquery-3.0.0-beta1.min.js"></script>

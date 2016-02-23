@@ -21,7 +21,7 @@ function throttle(a, b, c, d) {
 
 $(function () {
     var $sections = $('body > section[id]');
-    var $links = $('nav li a[href^="#"]');
+    var $links = $('.home nav li a');
     var $videos = $('.bg--video video');
 
     var $window = $(window);
@@ -40,8 +40,12 @@ $(function () {
             }
         });
         [$sections, $links].forEach(function (els) {
-            els.not(':eq(' + active + ')').removeClass('active').find('video').each(function(){return this.pause();})
-            els.eq(active).addClass('active').find('video').each(function(){return this.play(); })
+            els.not(':eq(' + active + ')').removeClass('active').find('video').each(function () {
+                return this.pause();
+            });
+            els.eq(active).addClass('active').find('video').each(function () {
+                return this.play();
+            })
         })
     };
 
@@ -53,20 +57,24 @@ $(function () {
         updateActiveSection();
     };
 
-    var preventDefault = function (ev) {
-        ev.preventDefault();
-    };
-
-    var scrollToAnchor = function () {
+    var scrollToAnchor = function (ev) {
         var index = $links.index(this);
         var href = $(this).attr('href');
-        var updateHref = function () {
-            window.location.hash = href;
+        var anchor = /\#(.*)/.exec(href);
+        console.log(anchor);
+
+        if (!anchor) {
+            return true;
+        }
+        ev.preventDefault();
+
+        var updateAnchor = function () {
+            window.location.hash = anchor[1];
         };
         var scrollTop = {
             scrollTop: $offsets[index]
         };
-        $('html, body').animate(scrollTop, 300, updateHref);
+        $('html, body').animate(scrollTop, 300, updateAnchor);
     };
 
     $window
@@ -74,7 +82,6 @@ $(function () {
         .on('hashchange scroll touchmove', throttle(300, updateActiveSection));
 
     $links
-        .on('click', preventDefault)
         .on('click', scrollToAnchor);
 
 });

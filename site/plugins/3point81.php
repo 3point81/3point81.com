@@ -5,13 +5,14 @@
  * @return string
  */
 function section(PageAbstract $section){
-    $uid = $section->uid();
-    $content = snippet($uid , compact('section'), true);
+    $snippet = $section->intendedTemplate();
+    $content = snippet($snippet , compact('section'), true);
     if($content !== false){
         $bg = supportsBgVideo() ? backgroundVideo($section) : backgroundGif($section);
         return implode("\n", array_filter([$content, $bg]));
     }
-    return "<!-- Warning: site/snippets/$uid.php doesn't exist -->" .
+
+    return "<!-- Warning: site/snippets/$snippet.php doesn't exist -->" .
         '<h2>' . $section->title() . '</h2>' .
         '<p>' . $section->text() . '</p>';
 }
@@ -24,8 +25,8 @@ function section(PageAbstract $section){
  */
 function firstFileWithExt(PageAbstract $section, $ext){
     return $section->files()
-        ->filter(function($f) use ($ext) {
-            return $f->extension() === $ext;
+        ->filter(function(FileAbstract $f) use ($ext) {
+            return strtolower($f->extension()) === strtolower($ext);
         })
         ->first();
 }
@@ -36,9 +37,11 @@ function firstFileWithExt(PageAbstract $section, $ext){
  */
 function backgroundVideo(PageAbstract $section){
     $mp4 = firstFileWithExt($section, 'mp4');
-    // TODO: add back autoplay, cover
+    if(($poster = $section->images()->findBy('name', 'poster')) || ($poster = firstFileWithExt($section, 'jpg'))){
+        $posterAttr = 'poster="' . $poster->url() . '"';
+    }
     if($mp4){
-        return '<div class="bg bg--video">
+        return '<div class="bg bg--video" ' . $posterAttr . '>
                     <video loop>
                         <source src="' . $mp4->url() . '">
                     </video>

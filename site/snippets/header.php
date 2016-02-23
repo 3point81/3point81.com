@@ -10,7 +10,9 @@
         <ul class="expanded">
             <?php foreach ($site->pages()->visible() as $page): ?>
                 <li>
-                    <a href="#<?php echo $page->uid(); ?>"><?php
+                    <a
+                        class="<?php e($page->isOpen(), 'active'); ?>"
+                        href="<?php echo $site->url(); ?>/#<?php echo $page->uid(); ?>"><?php
                         echo $page->title();
                     ?></a>
                 </li>

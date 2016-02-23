@@ -1,0 +1,25 @@
+title: Case study
+pages: false
+files: true
+#preview: true
+fields:
+  title:
+    label: Client name
+    type:  text
+  project:
+    label: Project
+    type:  text
+  text:
+    label: Text
+    width: 2/3
+    type: textarea
+  assets:
+    label: Assets (screenshots, videos)
+    width: 1/3
+    type: textarea
+    help: >
+      e.g. (vimeo: https://vimeo.com/155674461) or (image: screenshot.png caption: Some caption)
+  background:
+    label: Background Color
+    type:  color
+    default: fff
