@@ -1,8 +1,8 @@
 /site/accounts
 /site/cache
-assets/avatars
-assets/css/*
-assets/maps/*
+/assets/avatars
+/assets/css/*
+/assets/maps/*
 /thumbs/*
 /content
 /site/config/config.3point81.com.php
