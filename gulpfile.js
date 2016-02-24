@@ -7,7 +7,7 @@ var reload = browserSync.reload;
 
 gulp.task('styles', function () {
     return gulp.src('assets/scss/styles.scss')
-        // .pipe(plugins.plumber())
+        .pipe(plugins.plumber())
         // .pipe(plugins.sourcemaps.init())
         .pipe(plugins.sass({}))
         .pipe(plugins.csso())

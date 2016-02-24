@@ -12,8 +12,7 @@
     <?php endforeach; ?>
 
 </div>
-
-
+</section><section class="drawer">
 <div id="team">
     <div class="container">
         <h2><?php echo $section->team(); ?></h2>

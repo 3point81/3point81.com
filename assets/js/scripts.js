@@ -51,17 +51,15 @@ $(function () {
 
     var updateOffsets = function () {
         $offsets = $sections.map(function () {
-            return $(this).position().top;
+            return $(this).offset().top;
         });
         windowHeight = $window.height();
-        updateActiveSection();
     };
 
     var scrollToAnchor = function (ev) {
         var index = $links.index(this);
         var href = $(this).attr('href');
         var anchor = /\#(.*)/.exec(href);
-        console.log(anchor);
 
         if (!anchor) {
             return true;
@@ -78,8 +76,8 @@ $(function () {
     };
 
     $window
-        .on('load resize orientationchange', updateOffsets)
-        .on('hashchange scroll touchmove', throttle(300, updateActiveSection));
+        .on('ready load resize orientationchange', updateOffsets)
+        .on('scroll touchmove', throttle(300, updateActiveSection));
 
     $links
         .on('click', scrollToAnchor);

@@ -23,3 +23,12 @@ gulp watch    # Start a local PHP server, with a BrowserSync proxy for livereloa
 gulp          # Run all of the above
 ```
 
+## Syncing/deployments
+
+```sh
+# Deploy site to server
+rsync --exclude-from .rsyncignore --delete --chown=user:group --chmod=775 -rltgDzv . user@server:/path/to/site
+
+# Fetch content from server
+rsync user@server:/path/to/site/content/ content/ -vzr --delete
+```

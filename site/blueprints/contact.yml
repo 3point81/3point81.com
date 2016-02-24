@@ -10,10 +10,12 @@ fields:
   address:
     label: Address
     type:  textarea
+    width: 1/2
   map:
     label: Map
-    placeholder: HTML embed code for iframe
     type:  textarea
+    placeholder: HTML embed code for iframe
+    width: 1/2
     buttons: false
     icon: map-marker
   footer:

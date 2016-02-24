@@ -1,13 +1,115 @@
 $root-font-family: "Aller W01", sans-serif;
 @import "../../node_modules/sanitize.css/sanitize.scss";
 
-$transparentBg: rgba(245,245,245, 0.5);
+$transparentBg: rgba(245, 245, 245, 0.55);
 $boxPadding: 20px;
+
+// ======================
+// GLOBAL
+// ======================
+a {
+  color: inherit;
+}
+
+section {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  min-width: 100vw;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  &.drawer {
+    min-height: auto;
+  }
+}
+
+h2 {
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+
+}
+
+// ======================
+// GENERIC
+// ======================
+.bg {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  &--gif {
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: contain;
+  }
+  &--video {
+    z-index: -1;
+    min-width: 100%;
+    min-height: 100%;
+    overflow: hidden;
+    video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      transform: translate(-50%, -50%);
+      width: auto;
+      height: auto;
+    }
+  }
+}
+
+.container {
+  width: 68%;
+  margin: 50px auto;
+  position: relative;
+  z-index: 2;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.col {
+  flex: 1;
+}
+
+.box {
+  background: $transparentBg;
+  border: 1px solid transparentize($transparentBg, 0.3);
+  padding: $boxPadding;
+  margin: 0 auto;
+  margin-bottom: 1.5em;
+  position: relative;
+  z-index: 1;
+  p + p {
+    padding-top: 1.5em;
+  }
+  ul {
+    list-style-position: inside;
+  }
+  h3 {
+    padding: 1.5em 0;
+  }
+  &.transparent {
+    border: 0;
+    background: none;
+  }
+}
 
 .hidden {
   display: none;
 }
 
+// ======
+// HEADER
+// ======
 header {
   #logo, nav {
     position: fixed;
@@ -15,11 +117,12 @@ header {
     top: 30px;
   }
   #logo {
-    right:  30px;
+    right: 30px;
     width: 30%;
-    max-width: 250px;
+    text-align: right;
     img {
       width: 100%;
+      max-width: 200px;
     }
   }
   nav {
@@ -28,47 +131,29 @@ header {
       margin-bottom: 2px;
     }
     a {
-      font-size: 1.5em;
+      font-size: 1.2em;
       font-weight: lighter;
       padding: 2px 6px;
       display: inline-block;
       background: $transparentBg;
       color: #000;
       &:hover {
-        background: darken($transparentBg,10);
+        background: darken($transparentBg, 10);
       }
       &.active {
         font-weight: bold;
       }
     }
- }
-}
-.container {
-  width: 66%;
-  margin: 50px auto;
-  position: relative;
-  z-index: 2;
-}
-.box {
-  background: $transparentBg;
-  padding: $boxPadding;
-  margin: 0 auto;
-  margin-bottom: 50px;
-  position: relative;
-  z-index: 1;
-  p + p {
-    padding-top: 1.5em;
   }
 }
 
-#logo {
-  max-width: 150px !important;
-}
-
+// ======
+// HEADER
+// ======
 footer {
   position: fixed;
   z-index: 3;
-  background: rgba(0,0,0,.8);
+  background: rgba(0, 0, 0, .8);
   bottom: 0px;
   left: 0px;
   right: 0px;
@@ -80,46 +165,29 @@ footer {
   }
 }
 
-section {
-  min-height: 100vh;
-  min-width: 100vw;
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
-  transition: opacity 0.3s ease-in-out;
-  opacity: 0.2;
-  &.active {
-    opacity: 1;
-  }
-}
-h2 {
-  font-size: 1.5em;
-}
-
-section#contact {
-  overflow: auto;
-}
-
-
-//
+// ==================
 // ABOUT/HOME SECTION
-//
+// ==================
 #home {
-  //font-size: 1.2em;
+  align-items: flex-end;
   .box {
-    width: 60%;
+    width: 50%;
     margin-left: 0;
-    margin-top: 50vh;
+    margin-bottom: 10vh;
   }
 }
 
-//
-//  CONTACT SECTION
-//
+// ===============
+// CONTACT SECTION
+// ===============
 #contact {
   color: white;
-  .map iframe {
-    max-width:100%;
+  overflow: auto;
+  iframe {
+    float: right;
+    width: 350px;
+    max-width: 100%;
+    height: 350px;
   }
 }
 
@@ -128,10 +196,11 @@ section#contact {
 //
 #people {
   .box {
-    width: 60%;
+    width: 50%;
     margin-left: 0;
   }
 }
+
 //
 // TEAM SUBSECTION
 //
@@ -145,22 +214,20 @@ section#contact {
   }
   .people {
     display: flex;
-    flex-wrap: wrap;
   }
   .person {
-    width:14%;
     img {
-      width:100%;
+      width: 100%;
     }
   }
 }
-//
+
+// ============
 // WORK SECTION
-//
+// ============
 #work {
   color: white;
   .projects {
-    margin-top: 40%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -182,25 +249,11 @@ section#contact {
   }
 }
 
-//
-// CASE STUDY SECTION/PAGE
-//
-#case-study {
-  .download-case-study {
-    color: black;
-    padding: 5px 10px;
-    border: 1px solid black;
-    border-radius: 5px;
-    float: right;
-  }
-}
-
-//
-//  CLIENTS SECTION
-//
+// ===============
+// CLIENTS SECTION
+// ===============
 #clients {
-  padding-top: 15vh;
-  .logos{
+  .logos {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -212,46 +265,43 @@ section#contact {
     width: 20%;
     text-align: center;
     img {
-      max-width:80%;
+      max-width: 80%;
     }
   }
 }
 
-//
-//  BACKGROUND VIDEO/GIF
-//
-.bg {
-  position: absolute;
-  z-index: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  &--gif {
-    background-repeat: no-repeat;
-    background-position: top center;
-    background-size: contain;
+// ===============
+// CASE STUDY PAGE
+// ===============
+#case-study {
+  .download-case-study {
+    color: black;
+    padding: 5px 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    float: right;
   }
-  &--video {
-    z-index: -1;
-    min-width: 100%;
-    min-height: 100%;
-    video {
+  .row {
+    align-items: flex-start;
+  }
+  figure.video {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+    iframe {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      min-width: 100%;
-      min-height: 100%;
-      transform: translate(-50%, -50%);
-      width: auto;
-      height: auto;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
     }
   }
 }
 
-//
-//  RESPONSIVE ADJUSTMENTS
-//
+// ======================
+// RESPONSIVE ADJUSTMENTS
+// ======================
 @media (max-width: 720px) {
   header {
     nav {
@@ -263,14 +313,14 @@ section#contact {
     }
     ul {
       -webkit-backdrop-filter: blur(10px);
-      background: darken($transparentBg, 50);
+      background: darken($transparentBg, 30);
       width: 100%;
       display: flex;
       align-items: center;
       justify-content: space-between;
       li {
         flex: 1;
-        border-left: 1px solid rgba(0,0,0,.1);
+        border-left: 1px solid rgba(0, 0, 0, .1);
         &:first-child {
           border: 0;
         }
@@ -286,8 +336,9 @@ section#contact {
       top: 50px;
     }
   }
-  #home {
-    font-size: 1em;
+  #contact iframe {
+    margin-top: 1.5em;
+    width: 100%;
   }
   #work .project {
     margin-bottom: 50px;
@@ -300,7 +351,13 @@ section#contact {
     width: 33.33%;
   }
   .container {
-    width: 90%;
+    width: 94%;
+  }
+  .row {
+    flex-wrap: wrap;
+  }
+  .col {
+    flex: 100%;
   }
   .box {
     width: 100% !important;

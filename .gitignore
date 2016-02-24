@@ -5,6 +5,7 @@
 /assets/maps/*
 /thumbs/*
 /content
+/backups
 /site/config/config.3point81.com.php
 node_modules
 .idea

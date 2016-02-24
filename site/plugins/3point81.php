@@ -9,7 +9,7 @@ function section(PageAbstract $section){
     $content = snippet($snippet , compact('section'), true);
     if($content !== false){
         $bg = supportsBgVideo() ? backgroundVideo($section) : backgroundGif($section);
-        return implode("\n", array_filter([$content, $bg]));
+        return implode("\n", array_filter([$bg, $content]));
     }
 
     return "<!-- Warning: site/snippets/$snippet.php doesn't exist -->" .
