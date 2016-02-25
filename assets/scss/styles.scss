@@ -118,7 +118,7 @@ header {
   }
   #logo {
     right: 30px;
-    width: 30%;
+    width: 22%;
     text-align: right;
     img {
       width: 100%;
@@ -173,7 +173,7 @@ footer {
   .box {
     width: 50%;
     margin-left: 0;
-    margin-bottom: 10vh;
+    margin-bottom: 5vh;
   }
 }
 
@@ -207,7 +207,7 @@ footer {
 #team {
   background: white;
   .container {
-    margin-bottom: 0;
+    margin-bottom: 50px;
   }
   h2 {
     padding: $boxPadding;
@@ -274,6 +274,7 @@ footer {
 // CASE STUDY PAGE
 // ===============
 #case-study {
+  font-size: 0.9em;
   .download-case-study {
     color: black;
     padding: 5px 10px;
@@ -303,6 +304,9 @@ footer {
 // RESPONSIVE ADJUSTMENTS
 // ======================
 @media (max-width: 720px) {
+  body {
+    font-size: 0.9em;
+  }
   header {
     nav {
       top: auto;
@@ -328,12 +332,13 @@ footer {
       a {
         text-align: center;
         display: block;
-        font-size: 0.9em;
+        font-size: 1em;
         padding: 15px 0;
       }
     }
     #logo {
       top: 50px;
+      max-width: 100px;
     }
   }
   #contact iframe {
@@ -344,8 +349,12 @@ footer {
     margin-bottom: 50px;
     width: 80%;
   }
+  #team .people {
+    flex-wrap: wrap;
+    text-align: center;
+  }
   #team .person {
-    width: 25%;
+    flex: 50%;
   }
   #clients .logo {
     width: 33.33%;

@@ -14,7 +14,7 @@
 </head>
 <body class="<?php e($page->isHomePage(), 'home'); ?>">
 
-<?php echo snippet('header'); ?>
+<?php snippet('header'); ?>
 
 <?php $sections = $page->isHomePage() ? $site->pages()->visible() : [$page]; ?>
 
@@ -24,9 +24,10 @@
     </section>
 <?php endforeach; ?>
 
-<?php echo snippet('footer'); ?>
+<?php snippet('footer'); ?>
 
 <script src="https://code.jquery.com/jquery-3.0.0-beta1.min.js"></script>
 <script src="<?php echo url('assets/js/scripts.js'); ?>"></script>
+<?php snippet('_google-analytics'); ?>
 </body>
 </html>
